@@ -37,13 +37,20 @@ export default function Header({ onOrderClick }) {
       >
         <div className="max-w-6xl mx-auto px-6 h-[72px] flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" onClick={close} className="flex-shrink-0">
-            <img
-              src="/crustic-logo.png"
-              alt="Crustic Pizza"
-              className="h-11 w-auto object-contain transition-all duration-300 hover:scale-105"
-              style={{ filter: 'drop-shadow(0 2px 8px rgba(200,92,42,0.3))' }}
-            />
+          <Link to="/" onClick={close} className="flex-shrink-0 transition-transform duration-300 hover:scale-105">
+            <div
+              className="w-11 h-11 rounded-full overflow-hidden"
+              style={{
+                border: '2px solid rgba(200,92,42,0.55)',
+                boxShadow: '0 0 18px rgba(200,92,42,0.40), 0 0 6px rgba(200,92,42,0.20)',
+              }}
+            >
+              <img
+                src="/crustic-logo.png"
+                alt="Crustic Pizza"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </Link>
 
           {/* Desktop Nav */}

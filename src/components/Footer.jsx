@@ -14,14 +14,21 @@ export default function Footer({ onOrderClick }) {
 
           {/* Brand */}
           <div className="lg:col-span-1">
-            <img
-              src="/crustic-logo.png"
-              alt="Crustic Pizza"
-              className="h-14 w-auto mb-4 object-contain"
-              style={{ filter: 'drop-shadow(0 4px 12px rgba(200,92,42,0.35))' }}
-            />
+            <div
+              className="w-16 h-16 rounded-full overflow-hidden mb-4"
+              style={{
+                border: '2px solid rgba(200,92,42,0.55)',
+                boxShadow: '0 0 24px rgba(200,92,42,0.40), 0 0 8px rgba(200,92,42,0.20)',
+              }}
+            >
+              <img
+                src="/crustic-logo.png"
+                alt="Crustic Pizza"
+                className="w-full h-full object-cover"
+              />
+            </div>
             <p className="text-forest-100 text-sm leading-relaxed mb-5">
-              Artisan pizza. Stone-fired soul.<br />
+              Fresh pizza, real ingredients.<br />
               Right here in Lilburn, GA.
             </p>
             <div className="flex gap-3">
