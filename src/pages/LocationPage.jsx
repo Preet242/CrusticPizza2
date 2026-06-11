@@ -50,7 +50,7 @@ export default function LocationPage() {
             <div className="absolute rounded-full pointer-events-none" style={{ inset: '-8px', border: '1px solid rgba(200,92,42,0.3)' }} />
             <div className="w-20 h-20 rounded-full overflow-hidden mx-auto"
               style={{ border: '2px solid rgba(200,92,42,0.5)', boxShadow: '0 0 30px rgba(200,92,42,0.4), 0 8px 24px rgba(0,0,0,0.5)' }}>
-              <img src="/crustic-logo.png" alt="" aria-hidden="true" className="w-full h-full object-cover" />
+              <img src={`${import.meta.env.BASE_URL}crustic-logo.png`} alt="" aria-hidden="true" className="w-full h-full object-cover" />
             </div>
           </div>
           <p className="text-terra-400 text-xs font-bold tracking-widest uppercase mb-4">Come Find Us</p>
@@ -88,7 +88,7 @@ export default function LocationPage() {
                   style={{ boxShadow: '0 24px 64px rgba(0,0,0,0.55), 0 0 0 1px rgba(200,92,42,0.1)' }}
                 >
                   <img
-                    src="/crustic-map.jpg"
+                    src={`${import.meta.env.BASE_URL}crustic-map.jpg`}
                     alt="Interior floor plan of Plaza Los Américas in Lilburn GA showing Crustic Pizza location highlighted with a red circle — enter the front door, turn right, find us in the first hallway on the right"
                     className="w-full h-auto object-cover"
                     loading="lazy"

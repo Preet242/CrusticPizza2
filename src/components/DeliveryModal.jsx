@@ -47,7 +47,7 @@ export default function DeliveryModal({ open, onClose }) {
           >
             <X size={16} />
           </button>
-          <img src="/crustic-logo.png" alt="Crustic Pizza" className="h-16 w-auto mb-4 object-contain"
+          <img src={`${import.meta.env.BASE_URL}crustic-logo.png`} alt="Crustic Pizza" className="h-16 w-auto mb-4 object-contain"
             style={{ filter: 'drop-shadow(0 4px 12px rgba(200,92,42,0.4))' }} />
           <h2 className="font-display font-bold text-cream-500 text-2xl leading-tight mb-2">Order for Delivery</h2>
           <p className="text-forest-100 text-sm leading-relaxed max-w-xs">
