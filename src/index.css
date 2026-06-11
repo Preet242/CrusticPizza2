@@ -1,0 +1,279 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- Google Fonts are loaded in index.html ---------- */
+
+/* ---------- Base ---------- */
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    overflow-x: hidden;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #1B2920;
+    color: #EDE4CB;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    max-width: 100vw;
+    /* iOS momentum scroll */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  ::selection {
+    background: rgba(200, 92, 42, 0.35);
+    color: #EDE4CB;
+  }
+
+  :focus-visible {
+    outline: 2px solid #C85C2A;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+/* ---------- Responsive gallery grid ---------- */
+.gallery-grid {
+  grid-auto-rows: 150px;
+}
+@media (min-width: 640px) {
+  .gallery-grid { grid-auto-rows: 180px; }
+}
+@media (min-width: 768px) {
+  .gallery-grid { grid-auto-rows: 215px; }
+}
+
+/* ---------- Hide scrollbar (tab overflow) ---------- */
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar { display: none; }
+
+/* ---------- Parallax: disable on touch/iOS devices ---------- */
+@media (hover: none), (pointer: coarse) {
+  .parallax-section {
+    background-attachment: scroll !important;
+  }
+}
+
+/* ---------- Touch: active state instead of hover for cards ---------- */
+@media (hover: none) {
+  .card-glow-hover:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: rgba(42,58,47,0.8);
+  }
+  .card-glow-hover:active {
+    transform: scale(0.97);
+    border-color: rgba(200,92,42,0.4);
+  }
+}
+
+/* ---------- Min tap target size on mobile ---------- */
+@media (pointer: coarse) {
+  .btn, button, [role="tab"] {
+    min-height: 44px;
+  }
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #111F16; }
+::-webkit-scrollbar-thumb { background: #3A5040; border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: #C85C2A; }
+
+/* ---------- Hero background ---------- */
+.hero-bg {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.032'/%3E%3C/svg%3E"),
+    radial-gradient(ellipse 110% 75% at 50% 115%, rgba(200,92,42,0.38) 0%, rgba(232,136,58,0.16) 30%, transparent 62%),
+    radial-gradient(ellipse 60% 50% at 85% 15%, rgba(232,136,58,0.07) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 50% at 15% 75%, rgba(14,30,20,0.6) 0%, transparent 55%),
+    linear-gradient(175deg, #070E0A 0%, #0F1A12 25%, #1B2920 60%, #152019 100%);
+}
+
+/* ---------- Page-section alternating backgrounds ---------- */
+.bg-section-alt {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E"),
+    linear-gradient(160deg, #111F16 0%, #16221A 100%);
+}
+
+/* ---------- Logo glow ---------- */
+.logo-hero-glow {
+  filter:
+    drop-shadow(0 0 28px rgba(200,92,42,0.55))
+    drop-shadow(0 0 60px rgba(232,136,58,0.25))
+    drop-shadow(0 12px 24px rgba(0,0,0,0.5));
+}
+
+/* ---------- Halo ring behind hero logo ---------- */
+.logo-halo {
+  background: radial-gradient(circle, rgba(200,92,42,0.22) 0%, rgba(232,136,58,0.1) 40%, transparent 70%);
+}
+
+/* ---------- Gradient text ---------- */
+.text-gradient {
+  background: linear-gradient(135deg, #EDE4CB 0%, #E8883A 50%, #C85C2A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ---------- Shimmer on CTA button ---------- */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.12) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2.5s linear infinite;
+  pointer-events: none;
+}
+
+/* ---------- Curved section divider (wave clip) ---------- */
+.wave-top {
+  clip-path: ellipse(75% 100% at 50% 100%);
+}
+
+.wave-bottom-clip {
+  clip-path: ellipse(80% 100% at 50% 0%);
+}
+
+/* ---------- Diagonal cut ---------- */
+.section-cut-bottom {
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
+
+/* ---------- Animated gradient border on cards ---------- */
+.card-glow-hover {
+  transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+}
+.card-glow-hover:hover {
+  box-shadow: 0 0 0 1px rgba(200,92,42,0.6), 0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(200,92,42,0.12);
+  transform: translateY(-6px);
+  border-color: rgba(200,92,42,0.5);
+}
+
+/* ---------- Animated underline nav ---------- */
+.nav-link-underline {
+  position: relative;
+}
+.nav-link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #C85C2A;
+  border-radius: 2px;
+  transition: width 0.25s ease;
+}
+.nav-link-underline:hover::after,
+.nav-link-underline.active::after {
+  width: 100%;
+}
+
+/* ---------- Reveal on scroll ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ---------- Decorative ring ---------- */
+.deco-ring {
+  border: 1px solid rgba(200,92,42,0.2);
+  border-radius: 50%;
+}
+
+/* ---------- Mobile nav drawer ---------- */
+.mobile-nav {
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.mobile-nav.open {
+  transform: translateX(0);
+}
+
+/* ---------- Modal ---------- */
+.modal-backdrop {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+.modal-backdrop.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.modal-panel {
+  transform: translateY(24px) scale(0.96);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.modal-backdrop.open .modal-panel {
+  transform: translateY(0) scale(1);
+}
+
+/* ---------- Tab indicator ---------- */
+.tab-indicator {
+  transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---------- Hours table row hover ---------- */
+.hours-row {
+  transition: background 0.2s ease;
+}
+.hours-row:hover {
+  background: rgba(200,92,42,0.07);
+}
+
+/* ---------- Page enter animation ---------- */
+.page-enter {
+  animation: fade-up 0.45s ease both;
+}
+
+/* ---------- Burger icon lines ---------- */
+.burger-open .line-1 { transform: translateY(7px) rotate(45deg); }
+.burger-open .line-2 { opacity: 0; transform: scaleX(0); }
+.burger-open .line-3 { transform: translateY(-7px) rotate(-45deg); }
+
+.burger-line {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #EDE4CB;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease, background 0.2s ease;
+}
+
+/* ---------- Delivery card platform colors ---------- */
+.platform-ubereats:hover  { border-color: #06C167; box-shadow: 0 0 0 1px #06C167, 0 20px 50px rgba(6,193,103,0.12); }
+.platform-doordash:hover  { border-color: #FF3008; box-shadow: 0 0 0 1px #FF3008, 0 20px 50px rgba(255,48,8,0.12); }
+.platform-grubhub:hover   { border-color: #F63440; box-shadow: 0 0 0 1px #F63440, 0 20px 50px rgba(246,52,64,0.12); }
+
+.modal-ubereats:hover  { border-color: #06C167; background: rgba(6,193,103,0.07); }
+.modal-doordash:hover  { border-color: #FF3008; background: rgba(255,48,8,0.07); }
+.modal-grubhub:hover   { border-color: #F63440; background: rgba(246,52,64,0.07); }
