@@ -104,7 +104,7 @@ export default function HomePage({ onOrderClick }) {
               }}
             >
               <img
-                src="/crustic-logo.png"
+                src={`${import.meta.env.BASE_URL}crustic-logo.png`}
                 alt="Crustic Pizza — Crispy Outside. Soft Inside."
                 className="w-full h-full object-cover"
               />
@@ -344,7 +344,7 @@ export default function HomePage({ onOrderClick }) {
               <div className="rounded-4xl overflow-hidden border border-forest-400/40"
                 style={{ boxShadow: '0 24px 64px rgba(0,0,0,0.55), 0 0 0 1px rgba(200,92,42,0.1)' }}>
                 <img
-                  src="/crustic-map.jpg"
+                  src={`${import.meta.env.BASE_URL}crustic-map.jpg`}
                   alt="Indoor map of Plaza Los Américas in Lilburn GA — the red circle marks Crustic Pizza. Enter main doors, turn right, find us in the first hallway."
                   className="w-full h-64 object-cover"
                 />

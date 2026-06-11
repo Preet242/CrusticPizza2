@@ -22,7 +22,7 @@ export default function Footer({ onOrderClick }) {
               }}
             >
               <img
-                src="/crustic-logo.png"
+                src={`${import.meta.env.BASE_URL}crustic-logo.png`}
                 alt="Crustic Pizza"
                 className="w-full h-full object-cover"
               />
