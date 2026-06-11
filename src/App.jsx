@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import DeliveryModal from './components/DeliveryModal';
@@ -14,7 +14,7 @@ export default function App() {
   const closeModal = () => setModalOpen(false);
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <ScrollToTop />
       <Header onOrderClick={openModal} />
       <main>
@@ -28,6 +28,6 @@ export default function App() {
       </main>
       <Footer onOrderClick={openModal} />
       <DeliveryModal open={modalOpen} onClose={closeModal} />
-    </BrowserRouter>
+    </HashRouter>
   );
 }
